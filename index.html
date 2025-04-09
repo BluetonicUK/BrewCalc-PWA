@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liquor Back Calculator</title>
+  <style>
+    body {
+      background-color: #2b2b2b;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 2rem;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 1rem;
+      max-width: 150px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 0.25rem;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      font-size: 1rem;
+      padding: 0.75rem;
+      margin-top: 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      padding: 1rem;
+      background-color: #1f1f1f;
+      border-radius: 6px;
+    }
+
+    .highlight {
+      color: #28a745;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.jpg" alt="Logo" class="logo" />
+  <h1>Liquor Back Calculator</h1>
+
+  <label for="kettleVolume">Kettle Volume (litres):</label>
+  <input type="number" inputmode="decimal" pattern="[0-9]*" id="kettleVolume" placeholder="" min="0" max="500" step="1" />
+
+  <label for="boilSG">Boil Specific Gravity:</label>
+  <input type="number" inputmode="decimal" pattern="[0-9]*" id="boilSG" step="0.001" placeholder="" min="1.000" max="1.200" />
+
+  <label for="targetOG">Target OG:</label>
+  <input type="number" inputmode="decimal" pattern="[0-9]*" id="targetOG" step="0.001" placeholder="" min="1.000" max="1.200" />
+
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div class="result" id="targetVolumeResult"></div>
+  <div class="result" id="liquorBackResult"></div>
+
+  <script>
+    function calculate() {
+      const kettleVolume = parseFloat(document.getElementById("kettleVolume").value);
+      const boilSG = parseFloat(document.getElementById("boilSG").value);
+      const targetOG = parseFloat(document.getElementById("targetOG").value);
+
+      if (isNaN(kettleVolume) || isNaN(boilSG) || isNaN(targetOG)) {
+        alert("Please fill in all values.");
+        return;
+      }
+
+      const adjustedVolume = kettleVolume - 100;
+      const targetVolume = (adjustedVolume * boilSG) / targetOG;
+      const liquorBack = targetVolume - adjustedVolume;
+
+      document.getElementById("targetVolumeResult").innerHTML = `Target Volume: <span class="highlight">${targetVolume.toFixed(2)}</span> litres`;
+      document.getElementById("liquorBackResult").innerHTML = `Liquor Back Volume: <span class="highlight">${liquorBack.toFixed(2)}</span> litres`;
+    }
+  </script>
+</body>
+</html>
