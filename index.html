@@ -32,52 +32,76 @@
       margin-bottom: 2rem;
     }
 
-    a.button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #2b2b2b; /* same as background */
-        color: #28a745;
-        text-decoration: none;
-        font-size: 1rem; /* smaller text */
-        padding: 1rem;
-        margin: 1rem 0;
-        border: 2px solid #28a745; /* green border */
-        border-radius: 0; /* square corners */
-        transition: background-color 0.3s, color 0.3s;
-        }
+    .button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
-        a.button i {
-        margin-right: 0.5rem;
-        font-size: 1.2rem;
-        }
+a.button {
+  background-color: #2b2b2b; /* match background */
+  border: 2px solid #28a745; /* green border */
+  border-radius: 12px; /* nice rounded corners */
+  padding: 2rem;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+  height: 150px;
+}
 
-        a.button:hover {
-        background-color: #28a745; /* green background on hover */
-        color: #2b2b2b; /* dark text on hover */
-    }
+a.button i {
+  font-size: 2rem;
+  color: #28a745; /* icon green */
+  margin-bottom: 0.5rem;
+}
+
+a.button span {
+  display: block;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+a.button:hover {
+  background-color: #28a745; /* green on hover */
+  color: #2b2b2b; /* text turns dark */
+}
+
+a.button:hover i {
+  color: #2b2b2b; /* icon also dark on hover */
+}
+
   </style>
-  
+
 </head>
-<body>
-  <img src="logo.jpg" alt="Logo" class="logo" />
-  <h1>BrewCalc</h1>
+    <body>
+        <img src="logo.jpg" alt="Logo" class="logo" />
+        <h1>BrewCalc</h1>
 
-  <a class="button" href="liquor-back.html">
-    <i class="fas fa-water"></i> Liquor Back
-  </a>
-  <a class="button" href="can-fill.html">
-    <i class="fas fa-beer-mug-empty"></i> Can Fill
-  </a>
+        <div class="button-grid">
+        <a class="button" href="liquor-back.html">
+            <i class="fas fa-water"></i>
+            <span>Liquor Back</span>
+        </a>
+        <a class="button" href="can-fill.html">
+            <i class="fas fa-beer-mug-empty"></i>
+            <span>Can Fill</span>
+        </a>
+        </div>
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js')
-          .then(reg => console.log('Service Worker registered:', reg))
-          .catch(err => console.log('Service Worker registration failed:', err));
-      });
-    }
-  </script>
-</body>
+        <script>
+            if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                .then(reg => console.log('Service Worker registered:', reg))
+                .catch(err => console.log('Service Worker registration failed:', err));
+            });
+            }
+        </script>
+    </body>
 </html>
