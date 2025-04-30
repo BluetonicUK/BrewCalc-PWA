@@ -89,6 +89,8 @@
   <div class="result" id="optimumResult"></div>
   <div class="result" id="maxResult"></div>
 
+  <audio id="pigSound" src="pig.wav" preload="auto"></audio>
+
   <script>
 
     if ('serviceWorker' in navigator) {
@@ -114,6 +116,8 @@
       document.getElementById("minResult").innerHTML = `Minimum Fill: <span class="highlight">${min.toFixed(2)}</span> ml`;
       document.getElementById("optimumResult").innerHTML = `Optimum Fill: <span class="highlight">${optimum.toFixed(2)}</span> ml`;
       document.getElementById("maxResult").innerHTML = `Maximum Fill: <span class="highlight">${max.toFixed(2)}</span> ml`;
+
+      document.getElementById("pigSound").play();
     }
 
   </script>

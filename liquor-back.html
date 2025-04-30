@@ -95,6 +95,8 @@
   <div class="result" id="targetVolumeResult"></div>
   <div class="result" id="liquorBackResult"></div>
 
+  <audio id="cowSound" src="cow.wav" preload="auto"></audio>
+
   <script>
 
     if ('serviceWorker' in navigator) {
@@ -121,6 +123,8 @@
 
       document.getElementById("targetVolumeResult").innerHTML = `Target Volume: <span class="highlight">${targetVolume.toFixed(2)}</span> litres`;
       document.getElementById("liquorBackResult").innerHTML = `Liquor Back Volume: <span class="highlight">${liquorBack.toFixed(2)}</span> litres`;
+    
+      document.getElementById("cowSound").play();
     }
 
   </script>

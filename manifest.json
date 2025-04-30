@@ -1,15 +1,29 @@
 {
-    "name": "BrewCalc",
-    "short_name": "BrewCalc",
-    "start_url": "./",
-    "display": "standalone",
-    "background_color": "#2b2b2b",
-    "theme_color": "#28a745",
-    "icons": [
-      {
-        "src": "logo-192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      }
-    ]
-  }
+  "name": "BrewCalc",
+  "short_name": "BrewCalc",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#2b2b2b",
+  "theme_color": "#28a745",
+  "icons": [
+    {
+      "src": "logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Liquor Back Calculator",
+      "short_name": "Liquor Back",
+      "url": "liquor-back.html",
+      "icons": [{ "src": "logo-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Can Fill Calculator",
+      "short_name": "Can Fill",
+      "url": "can-fill.html",
+      "icons": [{ "src": "logo-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}
